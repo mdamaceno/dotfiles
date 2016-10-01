@@ -1,5 +1,6 @@
 # GIT
 alias gacp="git add . && git commit --allow-empty-message && git push origin"
+alias gac="git add . && git commit --allow-empty-message"
 
 # LARAVEL
 alias laratest="php artisan config:clear && phpunit"
