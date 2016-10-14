@@ -60,7 +60,7 @@ set cursorline
 set cursorcolumn
 
 set list
-set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
+set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,space:·
 
 " Paste
 nnoremap <F2> :set invpaste paste?<CR>
