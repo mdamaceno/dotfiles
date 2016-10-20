@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
 Plug 'junegunn/vim-easy-align'
 Plug 'sickill/vim-monokai'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -31,7 +32,7 @@ call plug#end()
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme monokai
+colorscheme gruvbox
 
 set nocompatible
 filetype indent plugin on
