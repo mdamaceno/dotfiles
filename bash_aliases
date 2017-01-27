@@ -9,3 +9,6 @@ alias laratestrand="php artisan config:clear && $HOME/.composer/vendor/fiunchinh
 alias pacc="php artisan config:cache"
 alias pacl="php artisan config:clear"
 alias pas="php artisan serve"
+
+# SYSTEM
+alias updatesys="sudo apt-get update && sudo apt-get upgrade -y"
