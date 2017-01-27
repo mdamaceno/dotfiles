@@ -27,12 +27,13 @@ Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/tlib'
 Plug 'tpope/vim-commentary'
 Plug 'nono/vim-handlebars'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme onedark
 
 set nocompatible
 filetype indent plugin on
@@ -59,6 +60,7 @@ set softtabstop=4
 set expandtab
 set cursorline
 set cursorcolumn
+set autoread
 
 set list
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,space:·
@@ -77,3 +79,13 @@ nnoremap <C-q> :qa!<cr>
 
 nnoremap <silent> <F4> :BufExplorer<CR>
 nnoremap <silent> <s-F4> :ToggleBufExplorer<CR>
+
+nnoremap <C-E><C-X> :Ex.<CR>
+
+" Copy and paste
+if has('clipboard') && !has('gui_running')
+  vnoremap <C-c> "+y
+  vnoremap <C-x> "+d
+  vnoremap <C-v> "+p
+  inoremap <C-v> <C-r><C-o>+
+endif
