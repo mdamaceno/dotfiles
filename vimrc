@@ -28,6 +28,8 @@ Plug 'vim-scripts/tlib'
 Plug 'tpope/vim-commentary'
 Plug 'nono/vim-handlebars'
 Plug 'joshdick/onedark.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'stephpy/vim-php-cs'
 call plug#end()
 
 set t_Co=256
@@ -79,8 +81,14 @@ nnoremap <C-q> :qa!<cr>
 
 nnoremap <silent> <F4> :BufExplorer<CR>
 nnoremap <silent> <s-F4> :ToggleBufExplorer<CR>
+nnoremap <C-t><C-w> :close<CR>
 
 nnoremap <C-E><C-X> :Ex.<CR>
+
+" Ctrl- P mapping and two custom split keymappings (https://github.com/kien/ctrlp.vim)
+let g:ctrlp_map = '<c-p>'
+nmap <c-n>s :split<CR><c-w>j<c-p>
+nmap <c-n>v :vsplit<CR><c-w>l<c-p>
 
 " Copy and paste
 if has('clipboard') && !has('gui_running')
@@ -89,3 +97,13 @@ if has('clipboard') && !has('gui_running')
   vnoremap <C-v> "+p
   inoremap <C-v> <C-r><C-o>+
 endif
+
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+map <C-n> :NERDTreeToggle<CR>
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'

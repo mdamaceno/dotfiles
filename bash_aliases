@@ -12,3 +12,4 @@ alias pas="php artisan serve"
 
 # SYSTEM
 alias updatesys="sudo apt-get update && sudo apt-get upgrade -y"
+alias tmux="TERM=screen-256color-bce tmux"
