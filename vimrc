@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'sickill/vim-monokai'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -30,14 +31,35 @@ Plug 'nono/vim-handlebars'
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'stephpy/vim-php-cs'
+Plug 'jwalton512/vim-blade'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
+
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ }
+
+let g:airline_theme='onedark'
+
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+let g:onedark_termcolors=256
 
 set t_Co=256
 syntax enable
 set background=dark
 colorscheme onedark
-
 set nocompatible
+
 filetype indent plugin on
 set hidden
 set wildmenu
@@ -65,7 +87,7 @@ set cursorcolumn
 set autoread
 
 set list
-set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,space:·
+set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 
 " Paste
 nnoremap <F2> :set invpaste paste?<CR>
@@ -107,3 +129,11 @@ map <C-n> :NERDTreeToggle<CR>
 
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+" Blade Laravel
+
+let g:blade_custom_directives = ['datetime', 'javascript']
+let g:blade_custom_directives_pairs = {
+      \   'markdown': 'endmarkdown',
+      \   'cache': 'endcache',
+      \ }
