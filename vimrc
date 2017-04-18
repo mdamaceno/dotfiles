@@ -30,18 +30,75 @@ Plug 'tpope/vim-commentary'
 Plug 'nono/vim-handlebars'
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'stephpy/vim-php-cs'
+Plug 'stephpy/vim-php-cs-fixer'
 Plug 'jwalton512/vim-blade'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ryanoasis/vim-devicons'
+Plug 'severin-lemaignan/vim-minimap'
 call plug#end()
+
+hi Normal ctermbg=none
 
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
 
-let g:airline_theme='onedark'
+let g:enable_bold_font = 1
+set encoding=utf8
+
+let g:airline_theme="hybrid"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 1
+let g:webdevicons_enable_vimfiler = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 1
+let g:webdevicons_enable_flagship_statusline = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 10
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
 
 if (empty($TMUX))
   if (has("nvim"))
@@ -56,8 +113,13 @@ let g:onedark_termcolors=256
 
 set t_Co=256
 syntax enable
+
+"set background=dark
+"colorscheme onedark
+
 set background=dark
-colorscheme onedark
+colorscheme hybrid_material
+
 set nocompatible
 
 filetype indent plugin on
@@ -137,3 +199,10 @@ let g:blade_custom_directives_pairs = {
       \   'markdown': 'endmarkdown',
       \   'cache': 'endcache',
       \ }
+
+" Minimap
+let g:minimap_show='<leader>ms'
+let g:minimap_update='<leader>mu'
+let g:minimap_close='<leader>gc'
+let g:minimap_toggle='<leader>gt'
+let g:minimap_highlight='Visual'
