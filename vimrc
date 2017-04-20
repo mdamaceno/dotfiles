@@ -2,7 +2,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'sickill/vim-monokai'
+Plug 'crusoexia/vim-monokai'
+Plug 'ajh17/Spacegray.vim'
+Plug 'tomasr/molokai'
+Plug 'junegunn/seoul256.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'arnaud-lb/vim-php-namespace'
@@ -41,15 +44,13 @@ Plug 'severin-lemaignan/vim-minimap'
 call plug#end()
 
 hi Normal ctermbg=none
-
-let g:lightline = {
-  \ 'colorscheme': 'onedark',
-  \ }
+hi NonText ctermbg=none
+hi LineNr ctermbg=none
 
 let g:enable_bold_font = 1
 set encoding=utf8
 
-let g:airline_theme="hybrid"
+"let g:airline_theme="onedark"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:webdevicons_enable_nerdtree = 1
@@ -92,14 +93,24 @@ let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = '⮀'
+"let g:airline_left_sep = '⮀'
+let g:airline_left_sep = ''
 let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
+"let g:airline_right_sep = '⮂'
+let g:airline_right_sep = ''
 let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
+" Syntastic settings
+let g:syntastic_quiet_messages = {
+        \ "!level":  "errors",
+        \ "type":    "style",
+        \ "regex":   '.*',
+        \ "file:p":  '.*' }
+
+" Settings for TMUX
 if (empty($TMUX))
   if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -114,13 +125,12 @@ let g:onedark_termcolors=256
 set t_Co=256
 syntax enable
 
-"set background=dark
-"colorscheme onedark
-
+let g:seoul256_background = 235
 set background=dark
-colorscheme hybrid_material
+colorscheme monokai
 
 set nocompatible
+set linespace=0
 
 filetype indent plugin on
 set hidden
@@ -141,11 +151,10 @@ set mouse=a
 set cmdheight=2
 set number
 set notimeout ttimeout ttimeoutlen=200
-set shiftwidth=4
-set softtabstop=4
-set expandtab
 set cursorline
 set cursorcolumn
+highlight ColorColumn ctermbg=black
+set colorcolumn=80
 set autoread
 
 set list
