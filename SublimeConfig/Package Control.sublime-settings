@@ -1,0 +1,43 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"ayu",
+		"Boxy Theme",
+		"Bracketeer",
+		"BracketHighlighter",
+		"CloseFolder",
+		"Column Select",
+		"CTags",
+		"Duplicate Lines",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"Handlebars",
+		"HTML-CSS-JS Prettify",
+		"Laravel 5 Snippets",
+		"Laravel Blade Highlighter",
+		"Material Theme",
+		"One Dark Color Scheme",
+		"One Dark Material - Theme",
+		"Package Control",
+		"php-snippets",
+		"phpfmt",
+		"Seti_UI",
+		"SideBarEnhancements",
+		"Theme - Autumn",
+		"Theme - Brogrammer",
+		"Theme - Lanzhou",
+		"Theme - Moka",
+		"Theme - One Dark",
+		"Theme - Spacegray",
+		"Themes Menu Switcher",
+		"Vue Syntax Highlight",
+		"Vuejs Complete Package",
+		"Vuejs Snippets"
+	]
+}
