@@ -41,6 +41,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'christoomey/vim-system-copy'
 call plug#end()
 
 hi Normal ctermbg=none
@@ -156,6 +157,7 @@ set cursorcolumn
 highlight ColorColumn ctermbg=black
 set colorcolumn=80
 set autoread
+set relativenumber
 
 set list
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
