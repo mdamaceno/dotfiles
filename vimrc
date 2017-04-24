@@ -1,11 +1,6 @@
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'crusoexia/vim-monokai'
-Plug 'ajh17/Spacegray.vim'
-Plug 'tomasr/molokai'
-Plug 'junegunn/seoul256.vim'
+Plug 'flazz/vim-colorschemes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'arnaud-lb/vim-php-namespace'
@@ -15,13 +10,11 @@ Plug 'ervandew/supertab'
 Plug 'posva/vim-vue'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'jwalton512/vim-blade'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-liquid'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'garbas/vim-snipmate'
-Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-bundler'
@@ -31,8 +24,7 @@ Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/tlib'
 Plug 'tpope/vim-commentary'
 Plug 'nono/vim-handlebars'
-Plug 'joshdick/onedark.vim'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'jwalton512/vim-blade'
 Plug 'sheerun/vim-polyglot'
@@ -40,10 +32,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 
+" Transparent background in VIM
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 hi LineNr ctermbg=none
@@ -51,7 +43,7 @@ hi LineNr ctermbg=none
 let g:enable_bold_font = 1
 set encoding=utf8
 
-"let g:airline_theme="onedark"
+let g:airline_theme="onedark"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:webdevicons_enable_nerdtree = 1
@@ -94,11 +86,11 @@ let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-"let g:airline_left_sep = '⮀'
-let g:airline_left_sep = ''
+let g:airline_left_sep = '⮀'
+"let g:airline_left_sep = ''
 let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-let g:airline_right_sep = ''
+let g:airline_right_sep = '⮂'
+"let g:airline_right_sep = ''
 let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
@@ -128,7 +120,7 @@ syntax enable
 
 let g:seoul256_background = 235
 set background=dark
-colorscheme monokai
+colorscheme onedark
 
 set nocompatible
 set linespace=0
@@ -154,15 +146,12 @@ set number
 set notimeout ttimeout ttimeoutlen=200
 set cursorline
 set cursorcolumn
-highlight ColorColumn ctermbg=black
-set colorcolumn=80
 set autoread
 set relativenumber
-
 set list
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 
-" Paste
+" Setup for pasting in insert mode
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
@@ -171,13 +160,16 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+" Shortcuts to quit VIM
 inoremap <C-q> <esc>:qa!<cr>               " quit discarding changes
 nnoremap <C-q> :qa!<cr>
 
+" Files in buffer
 nnoremap <silent> <F4> :BufExplorer<CR>
 nnoremap <silent> <s-F4> :ToggleBufExplorer<CR>
 nnoremap <C-t><C-w> :close<CR>
 
+" Go to the directory overview keeping the file in buffer
 nnoremap <C-E><C-X> :Ex.<CR>
 
 " Ctrl- P mapping and two custom split keymappings (https://github.com/kien/ctrlp.vim)
@@ -193,27 +185,31 @@ if has('clipboard') && !has('gui_running')
   inoremap <C-v> <C-r><C-o>+
 endif
 
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" NERDTree setup
+" autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" map <C-n> :NERDTreeToggle<CR>
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
 
-map <C-n> :NERDTreeToggle<CR>
-
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+" netrw
+" let g:netrw_banner = 0
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 20
+let g:netrw_list_hide= '.*\.swp$,\~$,\.orig$'
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
 
 " Blade Laravel
-
 let g:blade_custom_directives = ['datetime', 'javascript']
 let g:blade_custom_directives_pairs = {
       \   'markdown': 'endmarkdown',
       \   'cache': 'endcache',
       \ }
 
-" Minimap
-let g:minimap_show='<leader>ms'
-let g:minimap_update='<leader>mu'
-let g:minimap_close='<leader>gc'
-let g:minimap_toggle='<leader>gt'
-let g:minimap_highlight='Visual'

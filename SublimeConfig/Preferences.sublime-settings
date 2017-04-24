@@ -25,6 +25,14 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"Advanced CSV",
+		"AlignTab",
+		"All Autocomplete",
+		"CSV",
+		"Laravel Helper Completions",
+		"PHP Companion",
+		"React IDE",
+		"VAlign",
 		"Vintage"
 	],
 	"indent_guide_options":
