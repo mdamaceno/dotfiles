@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'arnaud-lb/vim-php-namespace'
@@ -43,7 +44,7 @@ hi LineNr ctermbg=none
 let g:enable_bold_font = 1
 set encoding=utf8
 
-let g:airline_theme="onedark"
+let g:airline_theme="raven"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:webdevicons_enable_nerdtree = 1
@@ -113,13 +114,13 @@ if (empty($TMUX))
   endif
 endif
 
-let g:onedark_termcolors=256
+" let g:onedark_termcolors=256
 
-set t_Co=256
+" set t_Co=256
 syntax enable
 
-let g:seoul256_background = 235
-set background=dark
+" let g:seoul256_background = 235
+" set background=dark
 colorscheme onedark
 
 set nocompatible
