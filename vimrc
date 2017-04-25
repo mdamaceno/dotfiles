@@ -24,7 +24,7 @@ Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/tlib'
 Plug 'tpope/vim-commentary'
 Plug 'nono/vim-handlebars'
-" Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'jwalton512/vim-blade'
 Plug 'sheerun/vim-polyglot'
@@ -186,13 +186,13 @@ if has('clipboard') && !has('gui_running')
 endif
 
 " NERDTree setup
-" autocmd vimenter * NERDTree
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" map <C-n> :NERDTreeToggle<CR>
-" let g:NERDTreeDirArrowExpandable = '▸'
-" let g:NERDTreeDirArrowCollapsible = '▾'
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " netrw
 " let g:netrw_banner = 0
@@ -200,7 +200,7 @@ endif
 " let g:netrw_browse_split = 4
 " let g:netrw_altv = 1
 " let g:netrw_winsize = 20
-let g:netrw_list_hide= '.*\.swp$,\~$,\.orig$'
+" let g:netrw_list_hide= '.*\.swp$,\~$,\.orig$'
 " augroup ProjectDrawer
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
