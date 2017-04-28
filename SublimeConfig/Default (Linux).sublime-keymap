@@ -1,4 +1,5 @@
 [
   { "keys": ["ctrl+;"], "command": "toggle_comment", "args": { "block": false } },
-  { "keys": ["ctrl+alt+m"], "command": "toggle_menu" }
+  { "keys": ["ctrl+alt+m"], "command": "toggle_menu" },
+  { "keys": ["ctrl+shift+d"], "command": "duplicate_lines" }
 ]
