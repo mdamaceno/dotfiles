@@ -34,6 +34,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-system-copy'
+Plug 'xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 " Transparent background in VIM
@@ -43,6 +44,11 @@ hi LineNr ctermbg=none
 
 let g:enable_bold_font = 1
 set encoding=utf8
+
+if has("gui_running")
+  set guifont=Noto\ Mono\ 10
+  set gnf=Noto\ Mono\ 10
+endif
 
 let g:airline_theme="raven"
 let g:airline#extensions#tabline#enabled = 1
@@ -121,7 +127,8 @@ syntax enable
 
 " let g:seoul256_background = 235
 " set background=dark
-colorscheme onedark
+colorscheme railscasts
+
 
 set nocompatible
 set linespace=0
