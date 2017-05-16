@@ -10,6 +10,9 @@ alias pacc="php artisan config:cache"
 alias pacl="php artisan config:clear"
 alias pas="php artisan serve"
 
+# PHPUNIT
+alias phpunit=vendor/bin/phpunit
+
 # SYSTEM
 alias updatesys="sudo apt-get update && sudo apt-get upgrade -y"
 alias tmux="TERM=screen-256color-bce tmux"
