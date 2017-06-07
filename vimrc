@@ -127,7 +127,7 @@ syntax enable
 
 " let g:seoul256_background = 235
 " set background=dark
-colorscheme badwolf
+colorscheme monokain
 
 
 set nocompatible
@@ -155,7 +155,7 @@ set notimeout ttimeout ttimeoutlen=200
 set cursorline
 set cursorcolumn
 set autoread
-set relativenumber
+"set relativenumber
 set list
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 
