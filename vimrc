@@ -167,6 +167,7 @@ set showmode
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set clipboard=unnamedplus
 
 " Shortcuts to quit VIM
 inoremap <C-q> <esc>:qa!<cr>               " quit discarding changes
@@ -176,6 +177,12 @@ nnoremap <C-q> :qa!<cr>
 nnoremap <silent> <F4> :BufExplorer<CR>
 nnoremap <silent> <s-F4> :ToggleBufExplorer<CR>
 nnoremap <C-t><C-w> :close<CR>
+
+" Copy to system clipboard
+nnoremap <Leader>y "*y
+nnoremap <Leader>p "*p
+nnoremap <Leader>Y "+y
+nnoremap <Leader>P "+p
 
 " Go to the directory overview keeping the file in buffer
 nnoremap <C-E><C-X> :Ex.<CR>
