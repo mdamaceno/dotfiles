@@ -15,6 +15,6 @@ alias composer="docker run --rm -v $(pwd):/app -w /app composer/composer"
 alias phpunit=vendor/bin/phpunit
 
 # SYSTEM
-alias updatesys="sudo apt-get update && sudo apt-get upgrade -y"
+alias updatesys="sudo apt update && sudo apt upgrade -y"
 alias tmux="TERM=screen-256color-bce tmux"
 alias weather="curl -s http://wttr.in/Juiz+de+Fora?lang=pt"

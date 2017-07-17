@@ -127,7 +127,7 @@ syntax enable
 
 " let g:seoul256_background = 235
 " set background=dark
-colorscheme monokain
+colorscheme onedark
 
 
 set nocompatible
