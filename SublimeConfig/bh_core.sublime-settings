@@ -1,0 +1,5 @@
+{
+"show_unmatched": false,
+"content_highlight_bar": true,
+"search_threshold": 10000,
+}
