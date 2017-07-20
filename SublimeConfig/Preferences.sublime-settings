@@ -4,7 +4,7 @@
 	"caret_extra_width": 1,
 	"caret_style": "phase",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/User/SublimeLinter/Agila Monokai Extended (SL).tmTheme",
+	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Monokai.tmTheme",
 	"detect_indentation": false,
 	"drawCentered": true,
 	"draw_minimap_border": true,
