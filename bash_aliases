@@ -9,7 +9,7 @@ alias laratestrand="php artisan config:clear && $HOME/.composer/vendor/fiunchinh
 alias pacc="php artisan config:cache"
 alias pacl="php artisan config:clear"
 alias pas="php artisan serve"
-alias composer="docker run --rm -v $(pwd):/app -w /app composer/composer"
+#alias composer="docker run --rm -v $(pwd):/app -w /app composer/composer"
 
 # PHPUNIT
 alias phpunit=vendor/bin/phpunit
