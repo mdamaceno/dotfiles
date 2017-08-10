@@ -4,8 +4,9 @@
 	"caret_extra_width": 1,
 	"caret_style": "phase",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Monokai.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Dracula Markdown (SL).tmTheme",
 	"detect_indentation": false,
+	"drag_text": false,
 	"drawCentered": true,
 	"draw_minimap_border": true,
 	"draw_white_space": "all",
@@ -36,7 +37,6 @@
 		"React IDE",
 		"Theme - Brogrammer",
 		"Theme - One Dark",
-		"VAlign",
 		"Vintage"
 	],
 	"indent_guide_options":
@@ -63,8 +63,8 @@
 	"sidebar_small": true,
 	"tab_completion": true,
 	"tab_size": 2,
-	"theme": "Boxy Monokai.sublime-theme",
-	"theme_accent_lime": true,
+	"theme": "Boxy Ocean.sublime-theme",
+	"theme_accent_green": true,
 	"theme_bar": true,
 	"theme_bar_colored": true,
 	"theme_bar_logo_atomized": false,
@@ -79,7 +79,7 @@
 	"theme_tab_selected_underlined": false,
 	"translate_tabs_to_spaces": true,
 	"tree_animation_enabled": false,
-	"trimTrailingWhiteSpaceOnSave": true,
+	"trim_trailing_white_space_on_save": true,
 	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?_",
 	"word_wrap": true
 }
