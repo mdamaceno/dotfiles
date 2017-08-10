@@ -17,4 +17,9 @@ alias phpunit=vendor/bin/phpunit
 # SYSTEM
 alias updatesys="sudo apt update && sudo apt upgrade -y"
 alias tmux="TERM=screen-256color-bce tmux"
-alias weather="curl -s http://wttr.in/Juiz+de+Fora?lang=pt"
+alias weather="curl -s \"http://wttr.in/Juiz+de+Fora?lang=pt\""
+
+# DOCKER
+alias start-dunasnet="cd $HOME/Projects/www/devilbox && docker-compose up php httpd firebird && cd -"
+alias stop-dunasnet="cd $HOME/Projects/www/devilbox && docker-compose down && cd -"
+alias restart-dunasnet="cd $HOME/Projects/www/devilbox && docker-compose restart && cd -"
