@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'flazz/vim-colorschemes'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'arnaud-lb/vim-php-namespace'
@@ -9,32 +8,23 @@ Plug 'StanAngeloff/php.vim'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'ervandew/supertab'
 Plug 'posva/vim-vue'
-Plug 'stephpy/vim-php-cs-fixer'
 Plug 'jwalton512/vim-blade'
 Plug 'tpope/vim-liquid'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
 Plug 'garbas/vim-snipmate'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-bundler'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/tlib'
 Plug 'tpope/vim-commentary'
 Plug 'nono/vim-handlebars'
-Plug 'scrooloose/nerdtree'
-Plug 'stephpy/vim-php-cs-fixer'
 Plug 'jwalton512/vim-blade'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'christoomey/vim-system-copy'
-Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'rking/ag.vim'
 call plug#end()
 
 " Transparent background in VIM
@@ -44,20 +34,6 @@ hi LineNr ctermbg=none
 
 let g:enable_bold_font = 1
 set encoding=utf8
-
-if has("gui_running")
-  set guifont=Noto\ Mono\ 10
-  set gnf=Noto\ Mono\ 10
-endif
-
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 10
-
-" Syntastic settings
-let g:syntastic_quiet_messages = {
-        \ "!level":  "errors",
-        \ "type":    "style",
-        \ "regex":   '.*',
-        \ "file:p":  '.*' }
 
 " Settings for TMUX
 if (empty($TMUX))
@@ -71,12 +47,12 @@ endif
 
 " let g:onedark_termcolors=256
 
-" set t_Co=256
+set t_Co=256
 syntax enable
 
 " let g:seoul256_background = 235
 " set background=dark
-colorscheme onedark
+colorscheme kruby
 
 
 set nocompatible
@@ -148,16 +124,6 @@ if has('clipboard') && !has('gui_running')
   vnoremap <C-v> "+p
   inoremap <C-v> <C-r><C-o>+
 endif
-
-" NERDTree setup
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeMouseMode = 0
 
 " netrw
 " let g:netrw_banner = 0

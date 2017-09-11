@@ -4,5 +4,6 @@
 	"php_bin": "/usr/bin/php",
 	"psr1": false,
 	"psr2": true,
+	"readini": false,
 	"version": 4
 }
