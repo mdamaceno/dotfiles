@@ -64,7 +64,7 @@
 	"tab_completion": true,
 	"tab_size": 2,
 	"theme": "Boxy Monokai.sublime-theme",
-	"theme_accent_green": true,
+	"theme_accent_lime": true,
 	"theme_bar": true,
 	"theme_bar_colored": true,
 	"theme_bar_logo_atomized": false,
