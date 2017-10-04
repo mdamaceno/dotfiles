@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+
+#set -e
+
+linkVim() {
+  if ! [ -f "$HOME/.vim/autoload/plug.vim" ]; then
+    installVimPlug
+  fi
+
+  rm -rf $HOME/.vimrc
+  ln -s $PWD/vimrc $HOME/.vimrc
+}
+
+installVimPlug() {
+  if ! [ -x "$(command -v curl)" ]; then
+    sudo apt install -y curl
+  fi
+
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
+linkTmux() {
+  rm -rf $HOME/.tmux.conf
+  ln -s $PWD/tmux.conf $HOME/.tmux.conf
+}
+
+linkBashAliases() {
+  if [ -f "$HOME/.bash_aliases" ]; then
+    rm -rf $HOME/.bash_aliases
+    ln -s $PWD/bash_aliases $HOME/.bash_aliases
+  else
+    ln -s $PWD/bash_aliases $HOME/.bash_aliases
+  fi
+
+  . $HOME/.bash_aliases
+}
+
+linkGemrc() {
+  if [ -f "$HOME/.gemrc" ]; then
+    rm -rf $HOME/.gemrc
+    ln -s $PWD/gemrc $HOME/.gemrc
+  else
+    ln -s $PWD/gemrc $HOME/.gemrc
+  fi
+}
+
+linkSublimeTextSettings() {
+  if [ -d "$HOME/.config/sublime-text-3/Packages/User" ]; then
+    rm -rf $HOME/.config/sublime-text-3/Packages/User
+  else
+    mkdir -p $HOME/.config/sublime-text-3/Packages/User
+  fi
+
+  ln -s $PWD/SublimeConfig $HOME/.config/sublime-text-3/Packages/User
+}
+
+if ! [ -x "$(command -v vim)" ]; then
+
+  echo "Vim not found! Let's install it!"
+  sudo apt install -y vim
+  linkVim
+  echo "vimrc linked!"
+
+else
+
+  echo "==========> Linking vimrc"
+  linkVim
+  echo "vimrc linked!"
+
+fi
+
+echo
+
+if ! [ -x "$(command -v tmux)" ]; then
+
+  echo "==========> Linking tmux.conf"
+  echo "Tmux not found! Let's install it!"
+  sudo apt install -y tmux
+  linkTmux
+  echo "tmux.conf linked!"
+
+else
+
+  echo "==========> Linking tmux.conf"
+  linkTmux
+  echo "tmux.conf linked!"
+
+fi
+
+echo
+
+echo "==========> Linking bash_aliases"
+linkBashAliases
+echo "bash_aliases linked!"
+
+echo
+
+echo "==========> Linking gemrc"
+linkGemrc
+echo "gemrc linked!"
+
+echo
+
+echo "==========> Linking Sublime Text settings"
+linkSublimeTextSettings
+echo "Sublime Text settings linked!"
+
+echo
+
+echo "==========> Done!"
+exit 1
