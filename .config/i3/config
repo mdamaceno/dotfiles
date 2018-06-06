@@ -1,0 +1,468 @@
+####################
+# i3-gaps settings #
+####################
+new_window pixel 1
+hide_edge_borders none
+# You can change this values according to your preference
+gaps inner 8
+gaps outer 8
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+##############
+# Media Keys #
+##############
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
+##########
+# Basics #
+##########
+
+set $mod Mod4
+floating_modifier $mod
+workspace_layout tabbed
+for_window [class=".*"] title_format "<span> %title</span>"
+
+#############
+# VARIABLES #
+#############
+
+# Applications
+set $BROWSER firefox
+set $FILEMANAGER thunar
+set $MAIL thunderbird
+set $TEXTEDITOR subl
+set $CODEEDITOR code
+set $TERM lxterminal
+
+# Colors
+set $bg-color #222222
+set $inactive-bg-color #222222
+set $active-bg-color #55a23f
+set $urgent-bg-color #e53935
+set $text-color #ffffff
+set $inactive-text-color #ffffff
+
+#############n
+# Autostart #
+#############
+
+# Default tray icons you find in Manjaro i3. I left them because they work fine
+#exec_always --no-startup-id ~/.scripts/polybar-launch.sh
+exec --no-startup-id nm-applet
+exec --no-startup-id numlockx
+exec --no-startup-id "killall -q compton; compton --config ~/.config/compton.conf"
+exec --no-startup-id redshift -l -21.76417:-43.35028
+exec --no-startup-id thunar --daemon
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id clipit
+exec --no-startup-id xautolock -time 7 -locker "i3lock -c 000000 -i ~/Pictures/Wallpapers/BAWGFjj.png" &
+#exec --no-startup-id nitrogen --set-scaled ~/Pictures/Wallpapers/QwE6abu.jpg
+#exec --no-startup-id ~/.scripts/wallpaper-randomizer.sh
+#exec --no-startup-id /usr/libexec/xfce-polkit
+
+font pango:Hack, FontAwesome, monospace 8
+
+#                        border              background          text                   indicator
+client.focused           $active-bg-color    $active-bg-color    $text-color            #00ff00
+client.unfocused         $active-bg-color    $inactive-bg-color  $active-bg-color       #00ff00
+client.focused_inactive  $active-bg-color    $inactive-bg-color  $inactive-text-color   #00ff00
+client.urgent            $urgent-bg-color    $urgent-bg-color    $text-color            #00ff00
+client.placeholder       #000000             #000000             #ffffff                #000000
+client.background        #000000
+
+########################################
+# Status bar (replaces default i3-bar) #
+########################################
+# This requires bumblebee-status.
+# https://github.com/tobi-wan-kenobi/bumblebee-status
+# You can customize what plugins blumblebee-status loads, the date and time format, the theme and the position of the bar itself
+
+#bar {
+#    colors {
+#        # Whole color settings
+#        background $bg-color
+#
+#        # Type             border                background         font
+#        focused_workspace  $active-bg-color      $active-bg-color   $text-color
+#        inactive_workspace $inactive-bg-color    $inactive-bg-color $inactive-text-color
+#        urgent_workspace   $urgent-bg-color      $urgent-bg-color   $text-color
+#    }
+    #status_command ~/bumblebee-status/bumblebee-status -m disk memory dnf pasink pasource layout bluetooth redshift caffeine battery datetime -p datetime.format="%d/%m/%Y %H:%M" disk.path="/home" -t greyish-powerline
+#
+#    position top
+#    font pango:Monaco, FontAwesome 9
+#    strip_workspace_numbers yes
+#    tray_output primary
+#    tray_padding 0
+#}
+
+
+bar {
+    status_command i3blocks -c ~/.config/i3blocks.conf
+    position top
+
+    colors {
+        # Whole color settings
+        background $bg-color
+
+        # Type             border                background         font
+        focused_workspace  $active-bg-color      $active-bg-color   $text-color
+        inactive_workspace $inactive-bg-color    $inactive-bg-color $inactive-text-color
+        urgent_workspace   $urgent-bg-color      $urgent-bg-color   $text-color
+    }
+    font pango:Hack, FontAwesome, monospace 9
+    strip_workspace_numbers yes
+}
+
+####################
+# Key Combinations #
+####################
+# You'll definitely want to change some of these
+
+bindsym $mod+Return         exec $TERM -e tmux -2
+
+bindsym $mod+Shift+space    floating toggle
+bindsym $mod+space      focus mode_toggle
+
+bindsym $mod+Ctrl+Escape        exec --no-startup-id xset -display :0.0 dpms force off
+bindsym $mod+Backspace   exec i3-msg exit
+bindsym $mod+Shift+BackSpace    exec reboot
+bindsym $mod+Ctrl+Shift+BackSpace    exec poweroff
+bindsym $mod+F4     exec sudo systemctl suspend
+bindsym $mod+F5     exec sudo systemctl restart NetworkManager
+
+bindsym $mod+q      kill
+bindsym $mod+Shift+q    kill
+
+# I use Nautilus as my file manager, change this according to your file manager and the folders you may want to have quick access to!
+bindsym $mod+e      exec --no-startup-id $FILEMANAGER
+# This is here should you need a root instance of you graphical file manager
+bindsym $mod+Shift+F3   exec gksu $FILEMANAGER
+
+bindsym $mod+x      exec --no-startup-id $BROWSER
+bindsym $mod+c      exec --no-startup-id $CODEEDITOR
+
+# Having quick access to the i3 config file might be useful when configuring i3wm
+bindsym $mod+Ctrl+C exec $TEXTEDITOR ~/.config/i3/config
+
+# Bmenu is a useful configuration tool included in Manjaro i3
+bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+
+# Dmenu_recency ibindsym $mod+d exec --no-startup-id dmenu_recencys the dafult program launcher in Manjaro i3 and it works pretty good for me!
+bindsym $mod+Shift+p exec --no-startup-id dmenu_run
+
+
+# Windows and Workspaces
+
+# Change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# Change focus with cursor keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+h right
+
+# Move focused window with cursor keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Workspace switching
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+
+# Split orientation: this is important as this defines where your next window will open! In fact, to make sure I'm aware of this, I also put a command to notify what tiling mode I've selected. I'm sure you'll want to change at least the notification text, since mine is in italian.
+bindsym $mod+h split h;exec notify-send --expire-time=500 'Divisione [h]Orizzontale'
+bindsym $mod+v split v;exec notify-send --expire-time=500 'Divisione [v]Verticale'
+bindsym $mod+t split toggle;exec notify-send --expire-time=500 'Divisione toggle'
+
+# Fullscreen toggle for the focused window
+bindsym $mod+f  fullscreen toggle
+bindsym F11 fullscreen toggle
+
+# Layout (stacked, tabbed, toggle split) change, again with notification. These are intentionally assigned to uncommon key combinations since I don't use them that much
+bindsym $mod+s layout stacking;exec notify-send --expire-time=500 'Layout Stacking'
+bindsym $mod+Ctrl+t layout tabbed;exec notify-send --expire-time=500 'Layout Tabbed'
+bindsym $mod+Ctrl+e layout toggle split;exec notify-send --expire-time=500 'Layout Split'
+# Toggle sticky, again rarely used by me
+bindsym $mod+Shift+s sticky toggle;exec notify-send --expire-time=500 'Toggle sticky'
+
+# Workspace change Next/Prev (this is useful, as it only cycles through workspaces you're actually using at the moment)
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+# Arandr is the graphical frontend of xrandr and easily allows you to configure monitors. It is useful to have quick access to it if you usually switch to various external monitors/projectors
+bindsym $mod+F7     exec arandr
+
+# Applications
+bindsym $mod+p exec rofi -show drun
+
+# Printscreen
+bindsym $mod+Print exec xfce4-screenshooter
+bindsym Print exec xfce4-screenshooter -f
+bindsym Ctrl+Print exec xfce4-screenshooter -w
+bindsym Shift+Ctrl+Print exec xfce4-screenshooter -r
+
+############################
+# Workspaces configuration #
+############################
+# I'm putting this section here because I feel it makes the file easier to read
+
+# The following will be your configured workspaces. You can name them whatever you want, here I'm just setting their corresponding number as their name.
+# If you want them to have little icons like the ones shown in my video, you'll need to install a font called Font Awesome, from http://fontawesome.io . Then, from the same website (or by googleing it) you can find the cheatsheet page with all the symbols available in this font. Just choose one, copy it and paste it here in place of the desired workspace name. Here I left the tux icon as an example.
+
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 PASSWD
+
+# Usual workspace switching
+bindsym $mod+1      workspace $ws1
+bindsym $mod+2      workspace $ws2
+bindsym $mod+3      workspace $ws3
+bindsym $mod+4      workspace $ws4
+bindsym $mod+5      workspace $ws5
+bindsym $mod+6      workspace $ws6
+bindsym $mod+7      workspace $ws7
+bindsym $mod+8      workspace $ws8
+bindsym $mod+9      workspace $ws9
+bindsym $mod+0      workspace $ws10
+
+# Move focused window to desired workspace (very useful)
+bindsym $mod+Shift+1    move container to workspace $ws1
+bindsym $mod+Shift+2    move container to workspace $ws2
+bindsym $mod+Shift+3    move container to workspace $ws3
+bindsym $mod+Shift+4    move container to workspace $ws4
+bindsym $mod+Shift+5    move container to workspace $ws5
+bindsym $mod+Shift+6    move container to workspace $ws6
+bindsym $mod+Shift+7    move container to workspace $ws7
+bindsym $mod+Shift+8    move container to workspace $ws8
+bindsym $mod+Shift+9    move container to workspace $ws9
+bindsym $mod+Shift+0    move container to workspace $ws10
+
+
+# Here you can also put some "rules" for which i3 automatically starts certain apps on a default workspace. I don't use this function, but if you want to enable it, I left one example line.
+#for_window [class="Firefox"] move to workspace $ws1
+#for_window [class="Google-chrome"] move to workspace $ws1
+#for_window [class="Chromium"] move to workspace $ws1
+#for_window [class="Vivaldi"] move to workspace $ws1
+#for_window [class="Terminator"] move to workspace $ws2
+#for_window [class="Gnome-terminal"] move to workspace $ws2
+#for_window [class="Tilix"] move to workspace $ws2
+
+# This is useful instead if you use GIMP as this will take full advantage of the power of a tiling window manager, fixing the panels to the sides of the screen instead of aving them floating around. You might want to change the "px" or "ppt" values according to your screen size and resolution (needs some trial and error)
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+
+# More useful workspaces key combinations
+bindsym $mod+Home       workspace $ws1
+bindsym $mod+Shift+Home     move container to workspace $ws1
+bindsym $mod+End        workspace $ws10
+bindsym $mod+Shift+End      move container to workspace $ws10
+bindsym $mod+Prior      workspace prev
+bindsym $mod+Shift+Prior    move container to workspace prev
+bindsym $mod+Next       workspace next
+bindsym $mod+Shift+Next     move container to workspace next
+
+####################
+# Default floating #
+####################
+
+# The following applications and/or window classess will be opened in floating mode by default. This is useful as these are usually small window apps or dialog boxes and you don't want them to steal a significant part of your screen by tiling them
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+
+###########################
+# i3 and power management #
+###########################
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 (restarts only the window manager, so your opened files and applications won't be touched! very useful)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (This instead force closes everything and restarts X session! You'll loose unsaved data!)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Shut down, restart and locking
+bindsym $mod+Escape mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Resize window (you can also use the $mod+right_mouse_button for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# The following key combination locks your screen. You need blurlock installed
+bindsym $mod+Shift+Escape exec --no-startup-id i3lock -t -i ~/Pictures/Wallpapers/BAWGFjj.png
+
+
+#bindsym $mod+Shift+m exec "setxkbmap -layout us,br -variant nativo -option grp:alt_shift_toggle"
+
+
+# This is the color palette for your default terminal emulator. You can set the colors in your ~/.Xresources file.
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0     color0
+set_from_resource $term_color1     color1
+set_from_resource $term_color2     color2
+set_from_resource $term_color3     color3
+set_from_resource $term_color4     color4
+set_from_resource $term_color5     color5
+set_from_resource $term_color6     color6
+set_from_resource $term_color7     color7
+set_from_resource $term_color8     color8
+set_from_resource $term_color9     color9
+set_from_resource $term_color10    color10
+set_from_resource $term_color11    color11
+set_from_resource $term_color12    color12
+set_from_resource $term_color13    color13
+set_from_resource $term_color14    color14
+set_from_resource $term_color15    color15
+
+# Color palette used for i3
+# Variables are set based on the documentation:
+# https://i3wm.org/dovs/userguide.html#variables
+# Changing the value of one of the variables will
+# effect all the areas with the same color.
+set $i3_background      #2B2C2B
+set $i3_text            #F9FAF9
+set $i3_separator       #454947
+set $i3_color1          #f0faf9
+set $i3_color2          #595B5B
+set $i3_color3          #353836
+set $i3_color4          #16A085
+set $i3_color5          #FDF6E3
+set $i3_color6          #EEE8D5
+set $i3_color7          #E5201D
+set $i3_color8          #808380
+set $i3_color9          #434745
+set $i3_color10         #454948
+set $i3_color11         #80FFF9
+set $i3_color12         #FDF6E3
+set $i3_color13         #CB4B16
+set $i3_color14         #268BD2
+set $i3_color15         #000000
+set $i3_color16         #ffffff
+set $i3_color17         #0c0c0c
