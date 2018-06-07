@@ -9,6 +9,8 @@ alias dtmux="cat $HOME/Documents/cheatsheets/tmux/tmux-cheatsheet.markdown | les
 alias gdrive="$HOME/.local/bin/gdrive-linux-x64"
 alias install="sudo dnf install"
 alias spkg="dnf search"
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
 
 # GIT
 alias gacp="git add . && git commit --allow-empty-message && git push origin"
