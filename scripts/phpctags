@@ -1,0 +1,16 @@
+#!/bin/bash
+ctags -R --languages=php \
+  --fields=+aimS \
+  --php-kinds=cdfint \
+  --tag-relative=yes \
+  --totals=yes \
+  --exclude=tags \
+  --exclude="config*.php" \
+  --exclude="lang/*" \
+  --exclude="install/lang/*" \
+  --exclude="node_modules" \
+  --exclude="moodledata/*" \
+  --exclude="phpunit.xml" \
+  --exclude="vendor" \
+  --exclude=".git/*" \
+  -f tags

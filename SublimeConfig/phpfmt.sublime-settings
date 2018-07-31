@@ -1,9 +1,0 @@
-{
-	"format_on_save": false,
-	"option": "value",
-	"php_bin": "/usr/bin/php",
-	"psr1": false,
-	"psr2": true,
-	"readini": false,
-	"version": 4
-}
