@@ -120,7 +120,7 @@ if has('clipboard')
 endif
 
 nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>N :bp<CR>
 
 " Copy to system clipboard
 nnoremap <Leader>y "*y
