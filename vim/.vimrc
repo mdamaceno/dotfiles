@@ -46,6 +46,7 @@ Plug 'vim-scripts/LanguageTool'
 " Colorschemes
 Plug 'rainglow/vim'
 Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 set term=xterm-256color
@@ -69,17 +70,33 @@ endif
 syntax enable
 
 set background=dark
-colorscheme base16-default-dark
-let base16colorspace=256
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'transparent_background': 1,
+  \       'override' : {
+  \         'color00' : ['#1C1C1C', '232'],
+  \         'linenumber_bg' : ['#1C1C1C', '232']
+  \       }
+  \     }
+  \   }
+  \ }
+
+colorscheme PaperColor
 
 set nocompatible
 
 filetype indent plugin on
 
+
 " Show linenumbers
 set number
 set relativenumber
 set ruler
+
+"Show statusline
+set laststatus=2
 
 " Set Proper Tabs
 set tabstop=2
@@ -197,6 +214,7 @@ function! IPhpInsertUse()
 endfunction
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+let g:php_namespace_sort_after_insert = 1
 
 " Autotags
 let g:autotagTagsFile="tags"
