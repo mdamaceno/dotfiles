@@ -3,6 +3,7 @@
 """"""""""""""""""""""""""""""""""""
 
 set encoding=utf8
+set t_Co=256
 
 call plug#begin('~/.vim/plugged')
 Plug 'jlanzarotta/bufexplorer'
@@ -29,6 +30,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'alvan/vim-closetag'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" HTML plugins
+Plug 'mattn/emmet-vim'
 
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
@@ -39,7 +46,7 @@ Plug 'stephpy/vim-php-cs-fixer'
 
 " Markdown / Writting
 Plug 'reedes/vim-pencil'
-Plug 'tpope/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'vim-scripts/LanguageTool'
 
@@ -47,9 +54,13 @@ Plug 'vim-scripts/LanguageTool'
 Plug 'rainglow/vim'
 Plug 'chriskempson/base16-vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'koirand/tokyo-metro.vim'
+Plug 'srcery-colors/srcery-vim'
+Plug 'rakr/vim-one'
+Plug 'jacoborus/tender.vim'
+Plug 'sickill/vim-monokai'
+Plug 'tomasr/molokai'
 call plug#end()
-
-set term=xterm-256color
 
 "let g:powerline_pycmd = 'py3'
 
@@ -63,11 +74,8 @@ if (empty($TMUX))
   endif
 endif
 
-if (has("termguicolors"))
- set termguicolors
-endif
-
 syntax enable
+set termguicolors
 
 set background=dark
 
@@ -75,15 +83,19 @@ let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default.dark': {
   \       'transparent_background': 1,
-  \       'override' : {
-  \         'color00' : ['#1C1C1C', '232'],
-  \         'linenumber_bg' : ['#1C1C1C', '232']
-  \       }
   \     }
   \   }
   \ }
 
-colorscheme PaperColor
+" colorscheme PaperColor
+" colorscheme rainbow-contrast
+" colorscheme tokyo-metro
+" colorscheme srcery
+" colorscheme base16-default-dark
+" colorscheme one
+" colorscheme tender
+" colorscheme monokai
+colorscheme molokai
 
 set nocompatible
 
@@ -104,6 +116,14 @@ set shiftwidth=2
 set smarttab
 set expandtab
 set smartindent
+set autoindent
+
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+nnoremap <Space> za
 
 " Keep the history of the file when changing between buffers
 set hidden
@@ -162,7 +182,7 @@ au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/cta
 " NedrTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMapActivateNode='<space>'
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 let g:NERDTreeDirArrowExpandable = '|'
 let g:NERDTreeDirArrowCollapsible = '~'
 
@@ -189,6 +209,9 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 " Remap :W to be like :w
 command!  W :w
+
+" Remap :Q to be like :q
+command!  Q :q
 
 " Navigate by display line
 noremap j gj
@@ -218,6 +241,7 @@ let g:php_namespace_sort_after_insert = 1
 
 " Autotags
 let g:autotagTagsFile="tags"
+let g:autotagCtagsCmd="phptags"
 set tags+=tags,tags.vendors
 
 " Tagbar
@@ -246,3 +270,45 @@ map <leader>W <esc>yss
 
 " Delete string used for surrounding
 map <leader>dw <esc>ds
+
+nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" VIM Markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Enable autocompletion for HTML files
+autocmd FileType html php set omnifunc=htmlcomplete#CompleteTags
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.blade.php'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml,php'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'

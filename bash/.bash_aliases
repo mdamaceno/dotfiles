@@ -5,13 +5,12 @@ alias updatesys="sudo dnf update"
 alias weather="curl -s \"http://wttr.in/Juiz+de+Fora?lang=pt\""
 alias _='sudo'
 alias tmux="tmux -2"
-alias gdrive="$HOME/.local/bin/gdrive-linux-x64"
 alias install="sudo dnf install"
 alias spkg="dnf search"
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
-alias vi="vimx"
-alias vim="vimx"
+alias vi="vim"
+alias vim="vim"
 alias trello="3llo"
 
 # Cheat sheets
