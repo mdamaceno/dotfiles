@@ -3,7 +3,12 @@
 """"""""""""""""""""""""""""""""""""
 
 set encoding=utf8
-set t_Co=256
+" set t_Co=256
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE)
+  set t_ut=
+endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'jlanzarotta/bufexplorer'
@@ -33,6 +38,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'alvan/vim-closetag'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/goyo.vim'
 
 " HTML plugins
 Plug 'mattn/emmet-vim'
@@ -40,15 +47,20 @@ Plug 'mattn/emmet-vim'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 Plug 'hjson/vim-hjson'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 " PHP plugins
 Plug 'stephpy/vim-php-cs-fixer'
+
+" Ruby plugins
+Plug 'vim-ruby/vim-ruby'
 
 " Markdown / Writting
 Plug 'reedes/vim-pencil'
 Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'vim-scripts/LanguageTool'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 " Colorschemes
 Plug 'rainglow/vim'
@@ -60,6 +72,12 @@ Plug 'rakr/vim-one'
 Plug 'jacoborus/tender.vim'
 Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
+Plug 'BrainDeath0/Hypsteria'
+Plug 'nightsense/stellarized'
+Plug 'neutaaaaan/iosvkem'
+Plug 'HenryNewcomer/vim-theme-papaya'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'yous/vim-open-color'
 call plug#end()
 
 "let g:powerline_pycmd = 'py3'
@@ -75,7 +93,7 @@ if (empty($TMUX))
 endif
 
 syntax enable
-set termguicolors
+" set termguicolors
 
 set background=dark
 
@@ -87,7 +105,7 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 
-" colorscheme PaperColor
+colorscheme PaperColor
 " colorscheme rainbow-contrast
 " colorscheme tokyo-metro
 " colorscheme srcery
@@ -95,11 +113,20 @@ let g:PaperColor_Theme_Options = {
 " colorscheme one
 " colorscheme tender
 " colorscheme monokai
-colorscheme molokai
+" colorscheme molokai
+" colorscheme hypsteria
+" colorscheme stellarized
+" colorscheme Iosvkem
+" colorscheme papaya
+" colorscheme monokai_pro
+" colorscheme prime-contrast
+colorscheme open-color
 
 set nocompatible
 
-filetype indent plugin on
+filetype on
+filetype indent on
+filetype plugin on
 
 
 " Show linenumbers
@@ -144,6 +171,7 @@ noremap <Right> <NOP>
 
 " Enable highlighting of the current line
 set cursorline
+set cursorcolumn
 
 " Only highlight when searching
 set nohlsearch
@@ -185,6 +213,7 @@ let NERDTreeMapActivateNode='<space>'
 " autocmd vimenter * NERDTree
 let g:NERDTreeDirArrowExpandable = '|'
 let g:NERDTreeDirArrowCollapsible = '~'
+let g:NERDTreeChDirMode = 2
 
 nnoremap <C-o> :e.<cr>
 
@@ -271,8 +300,15 @@ map <leader>W <esc>yss
 " Delete string used for surrounding
 map <leader>dw <esc>ds
 
-nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
+" Resize panel
+nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent><Leader>l :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent><Leader>h :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
+" Split right and down always
+set splitbelow
+set splitright
 
 " VIM Markdown
 let g:vim_markdown_folding_disabled = 1
@@ -312,3 +348,11 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 "
 let g:closetag_close_shortcut = '<leader>>'
+
+let vim_markdown_preview_hotkey='<C-m>'
+
+" Fix weird issue of vim not setting syntax for some files
+au! BufRead,BufNewFile *Dockerfile* set filetype=dockerfile
+
+highlight ColorColumn ctermbg=black
+set colorcolumn=80
