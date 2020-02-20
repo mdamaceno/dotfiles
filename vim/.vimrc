@@ -11,18 +11,11 @@ if &term =~ '256color'
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/vim-easy-align'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-endwise'
-Plug 'mattn/emmet-vim'
-Plug 'scrooloose/syntastic'
-Plug 'vim-scripts/tlib'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-system-copy'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'nvie/vim-togglemouse'
 Plug 'SirVer/ultisnips'
 Plug 'scrooloose/nerdtree'
 Plug 'honza/vim-snippets'
@@ -34,20 +27,17 @@ Plug 'raimondi/delimitmate'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
 Plug 'alvan/vim-closetag'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/goyo.vim'
-
-" HTML plugins
-Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
-Plug 'hjson/vim-hjson'
-Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'jparise/vim-graphql'
+
+" Javascript plugins
+Plug 'pangloss/vim-javascript'
+Plug 'vim-syntastic/syntastic'
 
 " PHP plugins
 Plug 'stephpy/vim-php-cs-fixer'
@@ -56,29 +46,15 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'vim-ruby/vim-ruby'
 
 " Markdown / Writting
-Plug 'reedes/vim-pencil'
 Plug 'plasticboy/vim-markdown'
-Plug 'jtratner/vim-flavored-markdown'
-Plug 'vim-scripts/LanguageTool'
-Plug 'JamshedVesuna/vim-markdown-preview'
 
 " Colorschemes
-Plug 'rainglow/vim'
-Plug 'chriskempson/base16-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'koirand/tokyo-metro.vim'
-Plug 'srcery-colors/srcery-vim'
-Plug 'rakr/vim-one'
-Plug 'jacoborus/tender.vim'
-Plug 'sickill/vim-monokai'
-Plug 'tomasr/molokai'
-Plug 'BrainDeath0/Hypsteria'
-Plug 'nightsense/stellarized'
-Plug 'neutaaaaan/iosvkem'
-Plug 'HenryNewcomer/vim-theme-papaya'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'yous/vim-open-color'
+Plug 'jpo/vim-railscasts-theme'
+
 call plug#end()
+
+if has('python3')
+endif
 
 "let g:powerline_pycmd = 'py3'
 
@@ -93,34 +69,13 @@ if (empty($TMUX))
 endif
 
 syntax enable
-" set termguicolors
 
 set background=dark
 
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'transparent_background': 1,
-  \     }
-  \   }
-  \ }
+colorscheme railscasts
 
-colorscheme PaperColor
-" colorscheme rainbow-contrast
-" colorscheme tokyo-metro
-" colorscheme srcery
-" colorscheme base16-default-dark
-" colorscheme one
-" colorscheme tender
-" colorscheme monokai
-" colorscheme molokai
-" colorscheme hypsteria
-" colorscheme stellarized
-" colorscheme Iosvkem
-" colorscheme papaya
-" colorscheme monokai_pro
-" colorscheme prime-contrast
-colorscheme open-color
+" Set background transparent
+hi Normal guibg=NONE ctermbg=NONE
 
 set nocompatible
 
@@ -128,6 +83,8 @@ filetype on
 filetype indent on
 filetype plugin on
 
+highlight ColorColumn ctermbg=white
+set colorcolumn=80
 
 " Show linenumbers
 set number
@@ -136,6 +93,9 @@ set ruler
 
 "Show statusline
 set laststatus=2
+
+" Enable mouse
+set mouse=a
 
 " Set Proper Tabs
 set tabstop=2
@@ -163,6 +123,22 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
 " Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -176,13 +152,7 @@ set cursorcolumn
 " Only highlight when searching
 set nohlsearch
 
-if has('clipboard')
-  if has('unnamedplus')  " When possible use + register for copy-paste
-    set clipboard=unnamed,unnamedplus
-  else " On mac and Windows, use * register for copy-paste
-    set clipboard=unnamed
-  endif
-endif
+set clipboard=unnamedplus
 
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>N :bp<CR>
@@ -215,27 +185,6 @@ let g:NERDTreeDirArrowExpandable = '|'
 let g:NERDTreeDirArrowCollapsible = '~'
 let g:NERDTreeChDirMode = 2
 
-nnoremap <C-o> :e.<cr>
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories = ['/home/mdamaceno/.vim/ultisnips']
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" PHP CS Fixer setup
-let g:php_cs_fixer_rules = "@PSR2"
-let g:php_cs_fixer_config_file = '/home/mdamaceno/.php_cs'
-autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
-
 " Remap :W to be like :w
 command!  W :w
 
@@ -258,15 +207,6 @@ set incsearch
 set smartcase
 
 nnoremap <CR> :nohlsearch<cr>
-
-" PHP imports
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-let g:php_namespace_sort_after_insert = 1
 
 " Autotags
 let g:autotagTagsFile="tags"
@@ -310,9 +250,6 @@ nnoremap <silent><Leader>h :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 set splitbelow
 set splitright
 
-" VIM Markdown
-let g:vim_markdown_folding_disabled = 1
-
 " Enable autocompletion for HTML files
 autocmd FileType html php set omnifunc=htmlcomplete#CompleteTags
 
@@ -354,5 +291,23 @@ let vim_markdown_preview_hotkey='<C-m>'
 " Fix weird issue of vim not setting syntax for some files
 au! BufRead,BufNewFile *Dockerfile* set filetype=dockerfile
 
-highlight ColorColumn ctermbg=black
-set colorcolumn=80
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+" Ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
