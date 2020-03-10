@@ -1,5 +1,4 @@
 alias dc="docker-compose"
-# alias kb="sh $HOME/.scripts/keyboard.sh"
 alias xinfo="xwininfo -stats -wm"
 alias weather="curl -s \"http://wttr.in/Juiz+de+Fora?lang=pt\""
 alias _='sudo'
