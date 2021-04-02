@@ -1,0 +1,10 @@
+{
+    "diagnostic.enable": false,
+    "omnisharp.trace.server": "information",
+    "diagnostic-languageserver.filetypes": {
+        "cs": "omnisharp"
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+        "cs": "omnisharp"
+    }
+}

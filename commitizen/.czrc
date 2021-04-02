@@ -1,0 +1,13 @@
+{
+  "path": "/home/mdamaceno/custom-commitizen",
+  "config": {
+    "cz-emoji": {
+      "symbol": true,
+      "skipQuestions": ["scope"],
+      "subjectMaxLength": 200
+    },
+    "commitizen": {
+      "path": "/home/mdamaceno/.asdf/installs/nodejs/lts/.npm/lib/node_modules/@digitalroute/cz-conventional-changelog-for-jira"
+    }
+  }
+}

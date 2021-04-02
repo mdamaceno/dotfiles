@@ -1,5 +1,5 @@
 *.swp
 
-/vim/.vim/autoload
-/vim/.vim/plugged
-/vim/.vim/.netrwhist
+zsh/plugins
+nvim/plugged
+node_modules

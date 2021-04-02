@@ -1,0 +1,67 @@
+# Window configuration
+window:
+  dimensions:
+    columns: 200
+    lines: 80
+
+  padding:
+    x: 25
+    y: 15
+
+  decorations: full
+
+scrolling:
+  history: 90000
+  multiplier: 3
+
+# Font configuration
+font:
+  normal:
+    family: Jetbrains Mono
+    style: Light
+
+  bold:
+    family: Jetbrains Mono
+    style: Bold
+
+  italic:
+    family: Jetbrains Mono
+    style: Italic
+
+  bold_italic:
+    family: Cascadia Code
+    style: Jetbrains Mono
+
+  size: 14
+
+  offset:
+    x: 0
+    y: 6
+
+  use_thin_strokes: true
+
+# Colors (One Dark)
+colors:
+  primary:
+    background: '#1c1c1c'
+    foreground: '#abb2bf'
+  cursor:
+    text:       CellBackground
+    cursor:     '#528bff' # syntax-cursor-color
+  selection:
+    text:       CellForeground
+    background: '#3e4451' # syntax-selection-color
+  normal:
+    black:      '#5c6370' # mono-3
+    red:        '#e06c75' # red 1
+    green:      '#98c379'
+    yellow:     '#e5c07b' # orange 2
+    blue:       '#61afef'
+    magenta:    '#c678dd'
+    cyan:       '#56b6c2'
+    white:      '#828997' # mono-2
+
+background_opacity: 0.90
+
+# key_bindings:
+#   - { key: K, mods: Shift, action: None }
