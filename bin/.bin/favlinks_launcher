@@ -1,0 +1,3 @@
+#!/bin/sh
+
+awk -F";" '{ print $1"|"$3"|"$2 }' $FAVLINKS_PATH | rofi -dmenu | awk -F"|" '{ print $2 }' | xargs xdg-open > /dev/null 2>&1

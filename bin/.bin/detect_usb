@@ -1,0 +1,61 @@
+#!/bin/sh
+
+CRONOS_KB_ID="usb-SINO_WEALTH_Gaming_KB-event-kbd"
+CRONOS_KB_MSG="Adamantium Cronos keyboard selected"
+THINKPAD_KB_ID="usb-Lenovo_ThinkPad_Compact_USB_Keyboard_with_TrackPoint-event-kbd"
+THINKPAD_KB_MSG="Lenovo Thinkpad USB keyboard selected"
+LAPTOP_KB_MSG="Laptop generic keyboard selected"
+LAPTOP_THINKPAD_KB_MSG="Laptop Thinkpad keyboard selected"
+
+setCronosKeyboard()
+{
+    setxkbmap -layout us -variant altgr-intl -option compose:rctrl -option caps:swapescape
+    notify-send "$CRONOS_KB_MSG"
+}
+
+setThinkpadKeyboard()
+{
+    setxkbmap -layout us -variant altgr-intl -model thinkpad60 -option caps:swapescape
+    notify-send "$THINKPAD_KB_MSG"
+}
+
+setThinkpadE14Keyboard()
+{
+    setxkbmap -layout br -variant thinkpad -model thinkpad60 -option caps:swapescape
+    notify-send "$LAPTOP_THINKPAD_KB_MSG"
+}
+
+if [[ "$1" == "e14" ]]; then
+    setThinkpadE14Keyboard
+elif [[ "$1" == "trackpoint" ]]; then
+    setThinkpadKeyboard
+elif [[ "$1" == "cronos" ]]; then
+    setCronosKeyboard
+else
+    setxkbmap br
+fi
+
+# while true; do
+#     inotifywait -q /dev/input/by-id
+#     sleep 1
+
+#     setxkbmap -option caps:swapescape
+
+#     if [[ $(ls /dev/input/by-id | grep "$CRONOS_KB_ID" | tail -1 | wc -c) -ne 0 ]]; then
+#         setxkbmap -option compose:rctrl
+#         setxkbmap -layout us -variant altgr-intl
+#         notify-send "$CRONOS_KB_MSG"
+
+#     elif [[ $(ls /dev/input/by-id | grep "$THINKPAD_KB_ID" | tail -1 | wc -c) -ne 0 ]]; then
+#         setxkbmap -layout us -variant altgr-intl
+#         notify-send "$THINKPAD_KB_MSG"
+
+#     else
+
+#         if [[ $(cat /sys/devices/virtual/dmi/id/sys_vendor) -eq "LENOVO" ]]; then
+#             setxkbmap -layout br -variant thinkpad -model thinkpad
+#         else
+#             setxkbmap br
+#         fi
+#     fi
+# done
