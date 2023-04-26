@@ -8,8 +8,8 @@ nmap <leader>7 <Plug>BuffetSwitch(7)
 nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
 
-nnoremap <C-PageUp> :bn<CR>
-noremap <C-PageDown> :bp<CR>
+nnoremap <C-PageDown> :bn<CR>
+noremap <C-PageUp> :bp<CR>
 noremap <Leader><Tab> :Bw<CR>
 noremap <Leader><S-Tab> :Bw!<CR>
 noremap <C-t> :tabnew split<CR>map <leader>0 <Plug>BuffetSwitch(10)
