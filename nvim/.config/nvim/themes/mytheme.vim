@@ -58,3 +58,9 @@ hi Tag guifg=#D7005F guibg=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=NONE
 hi SpellCap ctermbg=NONE gui=undercurl guisp=NONE
 " hi NormalFloat ctermfg=255 guifg=#ffffff ctermbg=234 guibg=#1c1c1c
 
+function! g:BuffetSetCustomColors()
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=20 ctermfg=15 guibg=#00FF00 guifg=#000000
+  hi! BuffetTab cterm=NONE ctermbg=235 ctermfg=15 guibg=#00FF00 guifg=#000000
+  hi! BuffetActiveBuffer cterm=NONE ctermbg=235 ctermfg=15 guibg=#00FF00 guifg=#000000
+  hi! BuffetBuffer cterm=NONE ctermbg=235 ctermfg=15 guibg=#00FF00 guifg=#000000
+endfunction

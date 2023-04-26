@@ -31,5 +31,7 @@ Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 " Plug 'IrenejMarc/vim-mint'
 " Plug 'nickspoons/vim-sharpenup'
 " Plug 'OmniSharp/omnisharp-vim'
+Plug 'github/copilot.vim'
+Plug 'bagrat/vim-buffet'
 call plug#end()
 
