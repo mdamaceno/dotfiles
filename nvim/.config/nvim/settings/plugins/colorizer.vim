@@ -1,3 +1,3 @@
 " Colorizer
-nmap <leader>c :ColorToggle<cr>
+nmap <leader>ck :ColorToggle<cr>
 

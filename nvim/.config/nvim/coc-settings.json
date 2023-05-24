@@ -3,8 +3,9 @@
     "omnisharp.trace.server": "information",
     "suggest.removeDuplicateItems": true,
     "eslint.autoFixOnSave": true,
-    "diagnostic.displayByAle": false,
+    "diagnostic.displayByAle": true,
     "diagnostic.virtualText": false,
     "diagnostic.checkCurrentLine": true,
-    "diagnostic.virtualTextCurrentLineOnly": true
+    "diagnostic.virtualTextCurrentLineOnly": true,
+    "solargraph.diagnostics": true,
 }

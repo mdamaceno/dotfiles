@@ -1,6 +1,7 @@
-set encoding=utf8
-set fileencoding=utf8
-set termencoding=utf8
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
 
 set t_Co=256
 set backspace=indent,eol,start
@@ -21,6 +22,7 @@ set laststatus=2
 set number
 set relativenumber
 set signcolumn=yes
+set colorcolumn=120
 set cursorline
 set clipboard+=unnamedplus
 set hlsearch
@@ -35,14 +37,12 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-set mouse=
+set mouse=a
 
 syntax enable
 filetype on
 filetype indent on
 filetype plugin on
-
-set guifont=DroidSansMono\ Nerd\ Font:h11
 
 " Deal with unwanted white spaces (show them in red)
 highlight ExtraWhitespace ctermbg=red guibg=red

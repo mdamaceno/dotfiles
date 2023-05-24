@@ -2,7 +2,7 @@
 " Use K to show documentation in preview window.
 " let g:coc_global_extensions=[ 'coc-omnisharp' ]
 
-let b:coc_diagnostic_disable=1
+let b:coc_diagnostic_disable=0
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)

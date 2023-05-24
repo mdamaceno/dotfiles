@@ -18,15 +18,15 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Noto Sans Mono
+    family: FiraCode Nerd Font
     style: Normal
 
   bold:
-    family: Noto Sans Mono
+    family: FiraCode Nerd Font
     style: Bold
 
   italic:
-    family: Noto Sans Mono
+    family: FiraCode Nerd Font
     style: Italic
 
   size: 13
