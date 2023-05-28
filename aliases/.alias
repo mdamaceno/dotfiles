@@ -51,9 +51,11 @@ alias s-enable="sudo systemctl enable"
 alias s-disable="sudo systemctl disable"
 
 # Apt Get (Debian)
-# alias upgrade="sudo apt update && sudo apt upgrade"
-# alias uplist="sudo apt list --upgradable"
-# alias i="sudo apt install"
+alias ain="sudo apt install"
+alias aup="sudo apt update && sudo apt upgrade"
+alias adup="sudo apt dist-upgrade"
+alias arm="sudo apt remove"
+alias ase="apt search"
 
 # Zypper (OpenSUSE)
 # alias zin="sudo zypper in"

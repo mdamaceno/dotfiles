@@ -26,20 +26,6 @@ test -s ~/.fzf.bash && source ~/.fzf.bash || true
 
 export PATH="${PATH}:$HOME/.cargo/bin"
 
-# Show branch info (Git)
-# git_prompt() {
-#   BRANCH=$(__git_ps1)
-
-#   if [ ! -z $BRANCH ]; then
-#     echo -n "🌵\[\e[33m\]$BRANCH\[\e[m\]"
-
-#     STATUS=$(git status --short 2> /dev/null)
-
-#     if [ ! -z "$STATUS" ]; then
-#       echo " \[\e[31m\]✗\[\e[m\]"
-#     fi
-#   fi
-# }
 PS1='\n\[\e[32m\][\[\e[m\]\[\e[34m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[33m\]$(__git_ps1)\[\e[m\]\n\$ '
 
 # If there are multiple matches for completion, Tab should cycle through them
