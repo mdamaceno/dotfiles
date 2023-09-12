@@ -44,6 +44,7 @@ filetype on
 filetype indent on
 filetype plugin on
 
+
 " Deal with unwanted white spaces (show them in red)
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -66,5 +67,6 @@ map <leader>m <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 
 nnoremap <silent> <Space> :ToggleBufExplorer<CR>
 
+autocmd BufRead,BufNewFile *.go set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd BufRead,BufNewFile *.rb set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd BufRead,BufNewFile *.html,*.html.erb,erb set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd BufRead,BufNewFile *.html,*.html.erb,erb set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
