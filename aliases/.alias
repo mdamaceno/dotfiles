@@ -92,7 +92,8 @@ alias be='bundle exec'
 # Git
 alias lg="lazygit"
 alias glo='git log --pretty="oneline" --abbrev-commit'
-alias glol="git log --graph --decorate --pretty=oneline --abbrev-commit"
+# alias glol="git log --graph --decorate --pretty=oneline --abbrev-commit"
+alias glol="git log --pretty='%C(yellow)%h %C(cyan)%cd %Cblue%aN%C(auto)%d %Creset%s' --graph --date=relative --date-order"
 alias gstatus='git status'
 alias gpull="git pull origin $(git branch --show-current)"
 alias gco='git checkout'
