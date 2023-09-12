@@ -68,6 +68,14 @@ alias zdup="sudo zypper dup"
 alias zrm="sudo zypper rm"
 alias zse="zypper se"
 
+# DNF (Fedora)
+alias din="sudo dnf install"
+alias dup="sudo dnf update"
+alias dse="dnf search"
+alias drm="sudo dnf remove"
+
+alias update_dbeaver="sudo dnf install https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
+
 # Translation
 alias pt2en="trans -b pt:en"
 alias en2pt="trans -b en:pt"
