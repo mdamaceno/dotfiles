@@ -37,6 +37,7 @@ alias update_fonts="fc-cache -fv"
 alias reload_udev="sudo udevadm control --reload"
 # alias pager="nvimpager"
 alias calias="nvim $HOME/.alias"
+alias ckitty="nvim $HOME/.config/kitty/kitty.conf"
 
 # Dialog
 alias dial="cd /run/media/mdamaceno/SECONDARY/Work/dialog"
