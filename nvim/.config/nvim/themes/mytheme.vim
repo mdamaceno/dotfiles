@@ -1,9 +1,9 @@
 set background=dark
-colorscheme darkblue
+colorscheme lunaperche
 
 " hi Cursor ctermfg=235 ctermbg=231 cterm=NONE
 " hi Visual ctermfg=15 ctermbg=22 cterm=bold
-" hi CursorLine ctermfg=NONE ctermbg=23 cterm=bold
+hi CursorLine ctermfg=NONE ctermbg=NONE cterm=bold,underline
 " hi CursorColumn ctermfg=NONE ctermbg=NONE cterm=NONE
 " hi ColorColumn ctermfg=NONE ctermbg=54 cterm=NONE
 " hi LineNr ctermfg=248 ctermbg=NONE cterm=NONE
