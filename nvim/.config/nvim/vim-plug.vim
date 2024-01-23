@@ -22,8 +22,5 @@ Plug 'https://github.com/dyng/ctrlsf.vim'
 Plug 'https://github.com/github/copilot.vim'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-fugitive'
-" Plug 'https://github.com/chrisbra/Colorizer'
-" Plug 'https://github.com/raimondi/delimitmate'
-" Plug 'https://github.com/arnaud-lb/vim-php-namespace'
 call plug#end()
 

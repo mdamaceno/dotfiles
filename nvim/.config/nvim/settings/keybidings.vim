@@ -24,10 +24,3 @@ command!  Q :q
 "
 " Remap :Qa to be like :qa
 command!  Qa :qa
-
-" Terminal
-nnoremap <leader>tm :terminal bash<CR>
-
-" Open split
-nnoremap <silent> <Leader>ov :exe "vsplit"<CR>
-nnoremap <silent> <Leader>oh :exe "split"<CR>
