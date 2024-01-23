@@ -13,4 +13,5 @@ source $HOME/.config/nvim/settings/plugins/ultisnips.vim
 source $HOME/.config/nvim/settings/plugins/vim-illuminate.vim
 source $HOME/.config/nvim/settings/plugins/ctrlsf.vim
 source $HOME/.config/nvim/settings/plugins/bufexplorer.vim
+source $HOME/.config/nvim/settings/plugins/copilot.vim
 

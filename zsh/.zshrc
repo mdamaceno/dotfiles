@@ -50,87 +50,7 @@ export VISUAL="nvim"
 export DOTFILES_DIR=$HOME/proj/dotfiles
 
 ### Aliases ###
-alias dc="docker-compose"
-alias now="date \"+%d/%m/%Y %H:%M:%S\""
-alias today="cal && now"
-alias uuid="$HOME/.bin/uuid_generator"
-alias vim='nvim'
-alias vi='nvim'
-alias cnvim='nvim $HOME/.config/nvim/init.vim'
-alias ci3='nvim $HOME/.config/i3/config'
-alias ci3status='nvim $HOME/.config/i3status/config'
-alias czsh='nvim $HOME/.zshrc'
-alias calac='nvim $HOME/.config/alacritty/alacritty.yml'
-alias ctmux='nvim $HOME/.tmux.conf'
-alias cxinit='nvim $HOME/.xinitrc'
-alias ckb='nvim $HOME/.config/sxhkd/sxhkdrc'
-alias cdproj='cd $HOME/proj'
-alias weather='clear && echo "Loading..." && curl wttr.in/juiz+de+fora'
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias ..='cd ..'
-alias mv='mv -i'
-alias rm='rm -i'
-alias ls='exa'
-alias cat='nvimpager -c'
-alias grep='grep --color=auto'
-alias rspec='bin/rspec'
-alias rtinker='bin/console'
-alias sail='bash vendor/bin/sail'
-alias tmux='tmux -2'
-alias kbd='sh $HOME/.bin/detect_usb'
-alias updategrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias updatemirrors='sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
-alias plex="xdg-open "http://192.168.2.130:32400/web""
-alias marcoserver="ssh 192.168.2.130"
-alias night="pkill -USR1 redshift"
-alias fontcache="fc-cache -fv"
-alias reload_udev="sudo udevadm control --reload"
-alias pager="nvimpager"
-
-# Dialog
-alias dial="cd /run/media/mdamaceno/SECONDARY/Work/dialog"
-
-# SystemD
-alias s-status="sudo systemctl status"
-alias s-start="sudo systemctl start"
-alias s-stop="sudo systemctl stop"
-alias s-enable="sudo systemctl enable"
-alias s-disable="sudo systemctl disable"
-
-# Apt Get (Debian)
-alias upgrade="sudo apt update && sudo apt upgrade"
-alias uplist="sudo apt list --upgradable"
-alias i="sudo apt install"
-
-# Zypper (OpenSUSE)
-alias zin="sudo zypper in"
-alias zup="sudo zypper ref && sudo zypper up && sudo zypper dup && flatpak update"
-alias zrm="sudo zypper rm"
-alias zse="zypper search"
-
-# Translation
-alias pt2en="trans -b pt:en"
-alias en2pt="trans -b en:pt"
-alias pt2es="trans -b pt:es"
-alias es2pt="trans -b es:pt"
-
-# Clipboard
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-
-# Bundle
-alias be='bundle exec'
-
-# Git
-alias lg="lazygit-gm"
-alias glo='git log --pretty="oneline" --abbrev-commit'
-alias glol="git log --graph --decorate --pretty=oneline --abbrev-commit"
-alias gstatus='git status'
-alias gpull="git pull origin $(git branch --show-current)"
-alias gco='git checkout'
-alias gpush="git push origin $(git branch --show-current)"
-
-### END Aliases ###
+source $HOME/.alias
 
 ### Keyboard shortcuts ###
 function gitstatus() { echo "git status"; git status; zle reset-prompt }
@@ -162,9 +82,7 @@ export CZ_MAX_HEADER_WIDTH=140
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# source $ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH_PLUGINS_DIR/zsh-extract/extract.plugin.zsh
+source $ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f '/home/mdamaceno/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mdamaceno/google-cloud-sdk/path.zsh.inc'; fi
@@ -176,6 +94,8 @@ export PATH="$PATH:$HOME/.asdf/installs/rust/1.65.0/bin"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 export PATH="${PATH}:/home/mdamaceno/.cargo/bin"
+
+export GOPATH=$HOME/go
 export PATH="$PATH:$HOME/go/bin"
 
 export PATH="$PATH:$HOME/bin"
@@ -185,3 +105,11 @@ export LD_LIBRARY_PATH
 
 setxkbmap -option caps:swapescape
 setxkbmap -option compose:ralt
+# -- START ACTIVESTATE INSTALLATION
+export PATH="/home/mdamaceno/.komodoide/12.0/XRE/state/bin:$PATH"
+# -- STOP ACTIVESTATE INSTALLATION
+# -- START ACTIVESTATE DEFAULT RUNTIME ENVIRONMENT
+export PATH="/home/mdamaceno/.cache/activestate/bin:$PATH"
+# -- STOP ACTIVESTATE DEFAULT RUNTIME ENVIRONMENT
+
+source $HOME/.local/share/swiftly/env.sh

@@ -1,5 +1,6 @@
 " better layout for fzf
-let $FZF_DEFAULT_OPTS .= ' --layout=reverse'
+" let $FZF_DEFAULT_OPTS .= ' --layout=reverse'
+" let g:fzf_vim.buffers_jump = 1
 
 " Find file
 nnoremap <c-p> :Files<cr>

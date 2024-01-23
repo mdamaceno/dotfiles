@@ -35,3 +35,8 @@ endfunction
 nnoremap dld :call Disable_ls_duplicates()
 
 let g:coc_global_extensions = ['coc-solargraph']
+
+" Golang
+
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.format')

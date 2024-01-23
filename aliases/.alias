@@ -1,10 +1,11 @@
-alias dc="docker-compose"
+alias dc="docker compose"
 alias now="date \"+%d/%m/%Y %H:%M:%S\""
 alias today="cal && now"
-alias uuid="$HOME/.bin/uuid_generator"
-alias vim='nvim'
-alias vi='nvim'
+# alias uuid="$HOME/.bin/uuid_generator"
+# alias vim='nvim'
+# alias vi='nvim'
 alias cnvim='nvim $HOME/.config/nvim/init.vim'
+alias vimod='nvim $(git status --porcelain | awk "/^ M/{print \$2}")'
 # alias ci3='nvim $HOME/.config/i3/config'
 # alias ci3status='nvim $HOME/.config/i3status/config'
 alias loadbash='source ~/.bashrc'
@@ -38,6 +39,8 @@ alias reload_udev="sudo udevadm control --reload"
 # alias pager="nvimpager"
 alias calias="nvim $HOME/.alias"
 alias ckitty="nvim $HOME/.config/kitty/kitty.conf"
+
+alias sec="cd /run/media/mdamaceno/SECONDARY"
 
 # Dialog
 alias dial="cd /run/media/mdamaceno/SECONDARY/Work/dialog"
@@ -100,4 +103,3 @@ alias gpull="git pull origin $(git branch --show-current)"
 alias gco='git checkout'
 alias gpush="git push origin $(git branch --show-current)"
 alias branch="git branch --show-current"
-

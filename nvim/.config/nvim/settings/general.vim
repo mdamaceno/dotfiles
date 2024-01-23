@@ -70,3 +70,5 @@ nnoremap <silent> <Space> :ToggleBufExplorer<CR>
 autocmd BufRead,BufNewFile *.go set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd BufRead,BufNewFile *.rb set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.html,*.html.erb,erb set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+let g:python3_host_prog = '$HOME/.asdf/shims/python'
