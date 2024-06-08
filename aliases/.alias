@@ -1,7 +1,6 @@
 alias dc="docker compose"
 alias now="date \"+%d/%m/%Y %H:%M:%S\""
 alias today="cal && now"
-# alias uuid="$HOME/.bin/uuid_generator"
 # alias vim='nvim'
 # alias vi='nvim'
 alias cnvim='nvim $HOME/.config/nvim/init.vim'
@@ -15,14 +14,11 @@ alias calac='nvim $HOME/.config/alacritty/alacritty.yml'
 alias ctmux='nvim $HOME/.tmux.conf'
 # alias cxinit='nvim $HOME/.xinitrc'
 # alias ckb='nvim $HOME/.config/sxhkd/sxhkdrc'
-# alias cdproj='cd $HOME/proj'
 alias weather='clear && echo "Loading..." && curl wttr.in/juiz+de+fora'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias ..='cd ..'
 alias mv='mv -i'
 alias rm='rm -i'
-# alias ls='exa'
-# alias cat='nvimpager -c'
 alias grep='grep --color=auto'
 # alias rspec='bin/rspec'
 # alias rtinker='bin/console'
@@ -36,7 +32,6 @@ alias marcoserver="ssh 192.168.2.130"
 alias night="pkill -USR1 redshift"
 alias update_fonts="fc-cache -fv"
 alias reload_udev="sudo udevadm control --reload"
-# alias pager="nvimpager"
 alias calias="nvim $HOME/.alias"
 alias ckitty="nvim $HOME/.config/kitty/kitty.conf"
 
@@ -62,10 +57,6 @@ alias arm="sudo apt remove"
 alias ase="apt search"
 
 # Zypper (OpenSUSE)
-# alias zin="sudo zypper in"
-# alias zup="sudo zypper ref && sudo zypper up && sudo zypper dup"
-# alias zrm="sudo zypper rm"
-# alias zse="zypper search"
 alias zin="sudo zypper in"
 alias zup="sudo zypper ref && sudo zypper up"
 alias zdup="sudo zypper dup"
@@ -96,10 +87,7 @@ alias be='bundle exec'
 # Git
 alias lg="lazygit"
 alias glo='git log --pretty="oneline" --abbrev-commit'
-# alias glol="git log --graph --decorate --pretty=oneline --abbrev-commit"
 alias glol="git log --pretty='%C(yellow)%h %C(cyan)%cd %Cblue%aN%C(auto)%d %Creset%s' --graph --date=relative --date-order"
 alias gstatus='git status'
-alias gpull="git pull origin $(git branch --show-current)"
 alias gco='git checkout'
-alias gpush="git push origin $(git branch --show-current)"
 alias branch="git branch --show-current"

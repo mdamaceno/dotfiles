@@ -6,6 +6,8 @@ filetype plugin on
 set t_Co=256
 set number
 set relativenumber
+set cursorline
+set cursorcolumn
 
 set tabstop=2
 set shiftwidth=2
@@ -17,6 +19,7 @@ set updatetime=1000
 set nobackup
 set nowritebackup
 set noswapfile
+set clipboard=unnamedplus
 
 set mouse=a
 
