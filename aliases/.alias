@@ -1,46 +1,26 @@
 alias dc="docker compose"
 alias now="date \"+%d/%m/%Y %H:%M:%S\""
 alias today="cal && now"
-# alias vim='nvim'
-# alias vi='nvim'
 alias cnvim='nvim $HOME/.config/nvim/init.vim'
 alias vimod='nvim $(git status --porcelain | awk "/^ M/{print \$2}")'
-# alias ci3='nvim $HOME/.config/i3/config'
-# alias ci3status='nvim $HOME/.config/i3status/config'
 alias loadbash='source ~/.bashrc'
 alias cbash='nvim $HOME/.bashrc'
 alias czsh='nvim $HOME/.zshrc'
 alias calac='nvim $HOME/.config/alacritty/alacritty.yml'
 alias ctmux='nvim $HOME/.tmux.conf'
-# alias cxinit='nvim $HOME/.xinitrc'
-# alias ckb='nvim $HOME/.config/sxhkd/sxhkdrc'
 alias weather='clear && echo "Loading..." && curl wttr.in/juiz+de+fora'
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias ..='cd ..'
 alias mv='mv -i'
 alias rm='rm -i'
 alias grep='grep --color=auto'
-# alias rspec='bin/rspec'
-# alias rtinker='bin/console'
-# alias sail='bash vendor/bin/sail'
 alias tmux='tmux -2'
-# alias kbd='sh $HOME/.bin/detect_usb'
 alias updategrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-# alias updatemirrors='sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
-# alias plex="xdg-open "http://192.168.2.130:32400/web""
-alias marcoserver="ssh 192.168.2.130"
-alias night="pkill -USR1 redshift"
 alias update_fonts="fc-cache -fv"
 alias reload_udev="sudo udevadm control --reload"
 alias calias="nvim $HOME/.alias"
 alias ckitty="nvim $HOME/.config/kitty/kitty.conf"
 
-alias sec="cd /run/media/mdamaceno/SECONDARY"
-
-# Dialog
-alias dial="cd /run/media/mdamaceno/SECONDARY/Work/dialog"
-alias dialssh="ssh -v -i ~/.ssh/marco-damaceno-bastion-qa marco.damaceno@3.233.1.240 -p 22"
-alias dialscp="scp -v -i ~/.ssh/marco-damaceno-bastion-qa marco.damaceno@3.233.1.240"
+alias sec="cd /media/mdamaceno/SECONDARY"
 
 # SystemD
 alias s-status="sudo systemctl status"
