@@ -19,6 +19,7 @@ alias update_fonts="fc-cache -fv"
 alias reload_udev="sudo udevadm control --reload"
 alias calias="nvim $HOME/.alias"
 alias ckitty="nvim $HOME/.config/kitty/kitty.conf"
+alias ls="eza"
 
 alias sec="cd /media/mdamaceno/SECONDARY"
 
