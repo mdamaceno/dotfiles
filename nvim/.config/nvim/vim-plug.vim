@@ -22,5 +22,6 @@ Plug 'https://github.com/dyng/ctrlsf.vim'
 Plug 'https://github.com/github/copilot.vim'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/joerdav/templ.vim'
 call plug#end()
 
