@@ -1,6 +1,7 @@
 " PLUGIN: NedrTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMapActivateNode='<space>'
+let NERDTreeMapOpenInTab='<tab>'
 let NERDTreeShowHidden=1
 let g:NERDTreeChDirMode = 1
 let g:NERDTreeHijackNetrw = 1
