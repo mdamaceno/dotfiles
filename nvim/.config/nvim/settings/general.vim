@@ -8,6 +8,8 @@ set number
 set relativenumber
 set cursorline
 set cursorcolumn
+set showtabline=2
+set laststatus=0
 
 set tabstop=2
 set shiftwidth=2
