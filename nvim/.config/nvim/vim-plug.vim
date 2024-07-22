@@ -1,6 +1,10 @@
 let g:ale_disable_lsp = 1
 
 call plug#begin('~/.cache/nvim/plugged')
+" Theme
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/dense-analysis/ale'
