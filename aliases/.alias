@@ -1,4 +1,5 @@
 alias dc="docker compose"
+alias ld="lazydocker"
 alias now="date \"+%d/%m/%Y %H:%M:%S\""
 alias today="cal && now"
 alias cnvim='nvim $HOME/.config/nvim/init.vim'
@@ -6,7 +7,7 @@ alias vimod='nvim $(git status --porcelain | awk "/^ M/{print \$2}")'
 alias loadbash='source ~/.bashrc'
 alias cbash='nvim $HOME/.bashrc'
 alias czsh='nvim $HOME/.zshrc'
-alias calac='nvim $HOME/.config/alacritty/alacritty.yml'
+alias calac='nvim $HOME/.config/alacritty/alacritty.toml'
 alias ctmux='nvim $HOME/.tmux.conf'
 alias weather='clear && echo "Loading..." && curl wttr.in/juiz+de+fora'
 alias ..='cd ..'
@@ -21,7 +22,7 @@ alias calias="nvim $HOME/.alias"
 alias ckitty="nvim $HOME/.config/kitty/kitty.conf"
 alias ls="eza"
 
-alias sec="cd /media/mdamaceno/SECONDARY"
+alias sec="cd /run/media/mdamaceno/SECONDARY"
 
 # SystemD
 alias s-status="sudo systemctl status"
@@ -50,7 +51,7 @@ alias dup="sudo dnf update"
 alias dse="dnf search"
 alias drm="sudo dnf remove"
 
-alias update_dbeaver="sudo dnf install https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
+alias update_dbeaver="sudo nala install https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
 
 # Translation
 alias pt2en="trans -b pt:en"
@@ -72,3 +73,4 @@ alias glol="git log --pretty='%C(yellow)%h %C(cyan)%cd %Cblue%aN%C(auto)%d %Cres
 alias gstatus='git status'
 alias gco='git checkout'
 alias branch="git branch --show-current"
+alias disable_apparmor="sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0"
